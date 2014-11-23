@@ -4,10 +4,11 @@
   box-sizing:border-box;
   font-weight:lighter;
   font-size:16px;
+  text-decoration: none;
+  font-family:'Open Sans', sans-serif;
 }
 
 html{
-  font-family:'Open Sans', sans-serif;
   background:#333;
 }
 @media(max-width:360px){
@@ -38,6 +39,12 @@ a.settings{
   position:absolute;
   top:0.5em;
   right:0.5em;
+}
+a.face{
+  position:relative;
+  top:0;
+  left:0;
+  display:inline-block;
   color:transparent;
   width:2em;
   height:2em;
@@ -45,8 +52,14 @@ a.settings{
   background:#eee;
   overflow:hidden;
 }
-a.settings:before,
-a.settings:after{
+a.settings{
+  position:absolute;
+  top:0.5em;
+  right:0.5em;
+  left:auto;
+}
+a.face:before,
+a.face:after{
   content: "";
   background:#ccc;
   border-radius:50%;
@@ -54,7 +67,7 @@ a.settings:after{
   left:50%;
   z-index:2;
 }
-a.settings:before{
+a.face:before{
   width:1em;
   height:1em;
   margin: -0.625em;
@@ -62,7 +75,7 @@ a.settings:before{
   z-index: 4;
   border: 0.125em solid #eee;
 }
-a.settings:after{
+a.face:after{
   width: 1.5em;
   height: 1.5em;
   margin: -0.75em;
@@ -88,16 +101,67 @@ input{
   margin-bottom: 1em;
   width:100%;
 }
+.button,
 button{
   display:block;
   padding:1em;
   background:#ccc;
+  color:#333;
+  font-weight:;
   border-radius:2px;
   border:0;
   width:100%;
   margin-bottom: 1em;
   cursor:pointer;
+  text-align: center;
+}
+.danger{
+  background:red;
+  color:white;
 }
 form *:last-child{
   margin-bottom:0;
+}
+.profile_picture{
+  margin-bottom:1em;
+  background:white;
+  padding-top:1em;
+}
+.profile_picture img{
+  width:10em;
+  height:10em;
+  display:block;
+  margin: 0 auto;
+}
+ul.friends{
+  border:1px solid #bbb;
+}
+ul.friends li{
+  list-style: none;
+  padding:0.5em;
+}
+ul.friends li:nth-child(even){
+  background:#ddd;
+}
+ul.friends li span,
+ul.friends li a{
+  text-align: middle;
+}
+ul.friends li span{
+  padding:0.5em;
+  display:inline-block;
+  width: 5em;
+}
+ul.mountains{
+  margin-bottom:1em;
+}
+ul.mountains li{
+  list-style:none;
+}
+ul.mountains li a{
+  display:block;
+  padding:0.5em;
+  background:#eee;
+  margin-bottom: 0.5em;
+  color:#333;
 }
