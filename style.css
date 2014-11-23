@@ -165,3 +165,18 @@ ul.mountains li a{
   margin-bottom: 0.5em;
   color:#333;
 }
+.show_mountain{
+  position:relative;
+  height:15em;
+}
+.mountain1{
+  background-image:url(images/mountain.jpg);
+  background-size:cover;
+}
+.show_mountain .state{
+  display:block;
+  background:rgba(255,255,255,0.5);
+}
+.show_mountain .state .person{
+  display:inline-block;
+}
