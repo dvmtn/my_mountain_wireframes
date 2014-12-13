@@ -14,59 +14,81 @@
         <h1>Mountain 1</h1>
         <a href="settings.html" class="settings face">settings</a>
       </header>
-      <div class="show_mountain mountain1">
-        <div class="state state1">
-          <h3>State 1</h3>
-          <div class="person">
-            <a href="#" class="face">name</a>
-            <p>Jim Jones</p>
-          </div>
-          <div class="person">
-            <a href="#" class="face">name</a>
-            <p>Jane Jones</p>
+      <div class="mountain mountain1">
+        <div class="region big active" data-value="state1">
+          <h3>busy</h3>
+          <div class="people">
           </div>
         </div>
-        <div class="state state2">
-          <h3>State 2</h3>
-          <div class="person">
-            <a href="#" class="face">name</a>
-            <p>Jeremy Johnson</p>
+        <div class="region" data-value="state2">
+          <h3>work</h3>
+          <div class="people">
           </div>
         </div>
-        <div class="state state3">
-          <h3>State 3</h3>
-          <div class="person">
-            <a href="#" class="face">name</a>
-            <p>Joe Jefferies</p>
+        <div class="region" data-value="state3">
+          <h3>home</h3>
+          <div class="people">
+              <div class="other">Vix</div>
           </div>
         </div>
+        <div class="region" data-value="state4">
+          <h3>wheeling</h3>
+          <div class="people">
+              <div class="other">Anna</div>
+          </div>
+        </div>
+        <div class="region" data-value="state5">
+          <h3>utopia</h3>
+          <div class="people">
+              <div class="other">Adam</div>
+          </div>
+        </div>
+        <div class="me"></div>
       </div>
-      <ul class="friends">
-        <li>
-          <a href="#" class="face">name</a>
-          <span class="first_name">Jim</span>
-          <span class="last_name">Jones</span>
-          <span class="state">State 1</span>
-        </li>
-        <li>
-          <a href="#" class="face">name</a>
-          <span class="first_name">Jane</span>
-          <span class="last_name">Jones</span>
-          <span class="state">State 1</span>
-        </li>
-        <li>
-          <a href="#" class="face">name</a>
-          <span class="first_name">Jeremy</span>
-          <span class="last_name">Johnson</span>
-          <span class="state">State 2</span>
-        </li>
-        <li>
-          <a href="#" class="face">name</a>
-          <span class="first_name">Joe</span>
-          <span class="last_name">Jefferies</span>
-          <span class="state">State 3</span>
-        </li>
-      </ul>
+      <select class="hidden">
+          <option value="state1" selected="true">busy</option>
+          <option value="state2">work</option>
+          <option value="state3">home</option>
+          <option value="state4">wheeling</option>
+          <option value="state5">utopia</option>
+      </select>
+      <table class="friends">
+        <tr>
+          <td><a href="#" class="face">name</a></td>
+          <td><span class="first_name">Adam</span></td>
+          <td><span class="last_name">Whittingham</span></td>
+          <td><span class="state">utopia</span></td>
+        </tr>
+        <tr>
+          <td><a href="#" class="face">name</a></td>
+          <td><span class="first_name">Anna</span></td>
+          <td><span class="last_name">Kennedy</span></td>
+          <td><span class="state">wheeling</span></td>
+        </tr>
+        <tr>
+          <td><a href="#" class="face">name</a></td>
+          <td><span class="first_name">Vix</span></td>
+          <td><span class="last_name">Guthrie</span></td>
+          <td><span class="state">home</span></td>
+        </tr>
+      </table>
     </article>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+      $(function(){
+        $('.me').draggable({
+          containment: ".mountain"
+        });
+        $('.region').droppable({
+          drop: function( event, ui ) {
+            $('.region.active').removeClass('active');
+            $(this).addClass('active');
+            var state = $(this).data('value');
+            $('select').val(state);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
